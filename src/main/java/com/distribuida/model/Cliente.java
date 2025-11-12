@@ -10,7 +10,7 @@ public class Cliente {
     private String direccion;
     private String telefono;
     private String correo;
-//asd
+//asdd
         //CONSTRUCTOR
     public Cliente(){   }
 

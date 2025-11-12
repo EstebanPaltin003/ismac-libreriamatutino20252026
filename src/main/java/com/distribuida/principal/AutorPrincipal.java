@@ -8,5 +8,7 @@ public class AutorPrincipal {
 
         Autor autor = new Autor(1,"Marco Aurelio","Español");
 
+        System.out.println(autor.toString());
+
     }
 }
