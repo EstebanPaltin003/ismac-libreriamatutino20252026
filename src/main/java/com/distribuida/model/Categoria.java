@@ -7,7 +7,7 @@ public class Categoria {
     private String nombre;
 
     // CONSTRUCTORES
-    public Categoria() { }
+    public Categoria(int i) { }
 
     public Categoria(int idCategoria, String nombre) {
         this.idCategoria = idCategoria;
@@ -37,5 +37,9 @@ public class Categoria {
                 "idCategoria=" + idCategoria +
                 ", nombre='" + nombre + '\'' +
                 '}';
+    }
+
+    public String getCategoria() {
+        return "";
     }
 }

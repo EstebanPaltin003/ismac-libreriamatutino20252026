@@ -8,7 +8,7 @@ public class Autor {
     private String nacionalidad;
 
     // CONSTRUCTORES
-    public Autor() { }
+    public Autor(int i, String gabriel, String garcía, String colombia, String direccionX, String number, String mail) { }
 
     public Autor(int idAutor, String nombre, String nacionalidad) {
         this.idAutor = idAutor;

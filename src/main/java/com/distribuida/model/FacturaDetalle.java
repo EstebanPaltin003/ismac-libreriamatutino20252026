@@ -57,4 +57,25 @@ public class FacturaDetalle {
                 ", subtotal=" + calcularSubtotal() +
                 '}';
     }
+
+    public void setIdFacturaDetalle(int i) {
+    }
+
+    public void setSubtotal(int i) {
+    }
+
+    public void setFactura(Factura factura) {
+    }
+
+    public int getIdFacturaDetalle() {
+        return 0;
+    }
+
+    public int getSubtotal() {
+        return 0;
+    }
+
+    public Factura getFactura() {
+        return null;
+    }
 }
