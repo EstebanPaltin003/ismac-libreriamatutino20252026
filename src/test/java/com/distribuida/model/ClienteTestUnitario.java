@@ -7,72 +7,70 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class ClienteTestUnitario {
 
-    private Cliente cliente;
+    private Cliente Cliente;
 
     @BeforeEach
     public void setup(){
-        cliente = new Cliente(1
-                ,"1752775237"
-                ,"Armando"
-                ,"Muritos"
-                ,"Av siempre muerta"
-                ,"0915263524"
-                ,"amuritos@correo.com");
+        Cliente = new Cliente("171960400"
+                , 1
+                , "Matias"
+                , "Noguera"
+                , "Av. queti y sapo"
+                , "0968339777"
+                , "mnoguera@correo.com");
     }
 
     @Test
-    public void testClienteConstructor(){
+    public void setClienteConstructor(){
 
-        assertAll("Validar datos del Clietne con constructor",
-                 () -> assertEquals(1, cliente.getIdCliente()),
-                 () -> assertEquals("1752775237", cliente.getCedula()),
-                 () -> assertEquals("Armando", cliente.getNombre()),
-                 () -> assertEquals("Muritos", cliente.getApellido()),
-                 () -> assertEquals("Av siempre muerta", cliente.getDireccion()),
-                 () -> assertEquals("0915263524", cliente.getTelefono()),
-                 () -> assertEquals("amuritos@correo.com", cliente.getCorreo())
-                 );
+        assertAll("Validar datos del cliente con constructor",
+                () -> assertEquals(1, Cliente.getIdCliente()),
+                () -> assertEquals("171960400", Cliente.getCedula()),
+                () -> assertEquals("Matias", Cliente.getNombre()),
+                () -> assertEquals("Noguera", Cliente.getApellido()),
+                () -> assertEquals("Av. queti y sapo", Cliente.getDireccion()),
+                () -> assertEquals("0968339777", Cliente.getTelefono()),
+                () -> assertEquals("mnoguera@correo.com", Cliente.getCorreo())
+        );
+
     }
 
     @Test
     public void testClienteSetters(){
+//8
+        Cliente.setIdCliente(2);
+        Cliente.setCedula("178945612");
+        Cliente.setNombre("Julia");
+        Cliente.setApellido("Licen");
+        Cliente.setDireccion("Su casa");
+        Cliente.setTelefono("2381095");
+        Cliente.setCorreo("JLicen@hotmail.com");
 
-        cliente.setIdCliente(2);
-        cliente.setCedula("1713144176");
-        cliente.setNombre("Jaime");
-        cliente.setApellido("Cartero");
-        cliente.setDireccion("Av viva");
-        cliente.setTelefono("0951515151");
-        cliente.setCorreo("jcartero@correo.com");
+        assertAll("Validar datos del cliente consetters",
+                () -> assertEquals(2, Cliente.getIdCliente()),
+                () -> assertEquals("178945612", Cliente.getCedula()),
+                () -> assertEquals("Julia", Cliente.getNombre()),
+                () -> assertEquals("Licen", Cliente.getApellido()),
+                () -> assertEquals("Su casa", Cliente.getDireccion()),
+                () -> assertEquals("2381095", Cliente.getTelefono()),
+                () -> assertEquals("JLicen@hotmail.com", Cliente.getCorreo())
+        );
 
-        assertAll("Validar datos del cliente con setters",
-                () -> assertEquals(2, cliente.getIdCliente()),
-                () -> assertEquals("1713144176", cliente.getCedula()),
-                () -> assertEquals("Jaime", cliente.getNombre()),
-                () -> assertEquals("Cartero", cliente.getApellido()),
-                () -> assertEquals("Av viva", cliente.getDireccion()),
-                () -> assertEquals("0951515151", cliente.getTelefono()),
-                () -> assertEquals("jcartero@correo.com", cliente.getCorreo())
-                );
     }
 
     @Test
-    public void testClienteToString(){
+    public void testclientToString() {
 
-        String str = cliente.toString();
+        String str = Cliente.toString();
 
         assertAll("Validar datos del cliente en toString",
                 () -> assertTrue(str.contains("1")),
-                () -> assertTrue(str.contains("1752775237")),
-                () -> assertTrue(str.contains("Armando")),
-                () -> assertTrue(str.contains("Muritos")),
-                () -> assertTrue(str.contains("Av siempre muerta")),
-                () -> assertTrue(str.contains("0915263524")),
-                () -> assertTrue(str.contains("amuritos@correo.com"))
-                );
-
-
+                () -> assertTrue(str.contains("171960400")),
+                () -> assertTrue(str.contains("Matias")),
+                () -> assertTrue(str.contains("Noguera")),
+                () -> assertTrue(str.contains("Av. queti y sapo")),
+                () -> assertTrue(str.contains("0968339777")),
+                () -> assertTrue(str.contains("mnoguera@correo.com"))
+        );
     }
-
-
 }

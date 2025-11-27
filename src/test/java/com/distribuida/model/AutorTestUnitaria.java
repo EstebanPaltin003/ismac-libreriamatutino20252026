@@ -13,12 +13,12 @@ public class AutorTestUnitaria {
     public void setup() {
         Autor = new Autor(
                 1,
-                "Gabriel",
-                "García",
-                "Colombia",
-                "Direccion X",
-                "0999999999",
-                "ggarcia@correo.com"
+                "Esteban",
+                "Paltin",
+                "Ecuador",
+                "Av mas aca",
+                "0915261526",
+                "epaltin@correo.com"
         );
     }
 
@@ -26,19 +26,23 @@ public class AutorTestUnitaria {
     public void testAutorConstructor() {
         assertAll("Validar Constructor - autor",
                 () -> assertEquals(1, Autor.getIdAutor()),
-                () -> assertEquals("Gabriel", Autor.getNombre())
+                () -> assertEquals("Esteban", Autor.getNombre()),
+                () -> assertEquals("Paltin", Autor.getApellido()),
+                () -> assertEquals("Ecuador", Autor.getPais())
         );
     }
 
     @Test
     public void TestAutorSetters() {
-        Autor = new Autor(1, "Gabriel", "García", "Colombia", "Direccion X", "0999999999", "ggarcia@correo.com");
+        Autor = new Autor();
         Autor.setIdAutor(2);
-        Autor.setNombre("Lucho");
+        Autor.setNombre("Susan");
+        Autor.setApellido("Ahoria");
 
         assertAll("Validar setters - autor",
                 () -> assertEquals(2, Autor.getIdAutor()),
-                () -> assertEquals("Lucho", Autor.getNombre())
+                () -> assertEquals("Susan", Autor.getNombre()),
+                () -> assertEquals("Ahoria", Autor.getApellido())
         );
     }
 
@@ -47,8 +51,8 @@ public class AutorTestUnitaria {
         String s = Autor.toString();
 
         assertAll("Validar toString - autor",
-                () -> assertTrue(s.contains("Gabriel")),
-                () -> assertTrue(s.contains("García"))
+                () -> assertTrue(s.contains("Esteban")),
+                () -> assertTrue(s.contains("Paltin"))
         );
     }
 

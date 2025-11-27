@@ -8,8 +8,8 @@ import java.util.Date;
 @Entity
 @Table(name="factura")
 public class Factura {
-
-     @Id
+    //
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_factura")
     private int idFactura;
@@ -24,14 +24,14 @@ public class Factura {
     @Column(name = "total")
     private Double total;
 
-    //private int idCliente;
-        //INYECCION DE DEPENDENCIAS
+    //private int idCliente no
+    //inyeccion de dependencias
     @ManyToOne
     @JoinColumn(name = "id_cliente")
-    private Cliente cliente;
+    private Cliente Cliente;
 
-    public Factura(){   }
-            //METODO
+    public Factura(){}
+
     public Factura(int idFactura, String numFactura, Date fecha, Double totalNeto, Double iva, Double total, Cliente cliente) {
         this.idFactura = idFactura;
         this.numFactura = numFactura;
@@ -39,9 +39,9 @@ public class Factura {
         this.totalNeto = totalNeto;
         this.iva = iva;
         this.total = total;
-        this.cliente = cliente;
+        Cliente = cliente;
     }
-        //GETTER AND SETTER
+
     public int getIdFactura() {
         return idFactura;
     }
@@ -91,12 +91,12 @@ public class Factura {
     }
 
     public Cliente getCliente() {
-        return cliente;
+        return Cliente;
     }
 
-        //metodo inyector por setter
+    //metodo inyector por setter
     public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
+        Cliente = cliente;
     }
 
     @Override
@@ -108,7 +108,7 @@ public class Factura {
                 ", totalNeto=" + totalNeto +
                 ", iva=" + iva +
                 ", total=" + total +
-                ", cliente=" + cliente +
+                ", Cliente=" + Cliente +
                 '}';
     }
 }

@@ -1,21 +1,14 @@
 package com.distribuida.principal;
 
-import com.distribuida.model.Cliente;
 import com.distribuida.model.Factura;
+import com.distribuida.model.Cliente;
 
 import java.util.Date;
 
 public class FacturaPrincipal {
-
-    public static void main(String[] args){
-
-        Cliente cliente = new Cliente(1,"1752775237", "Armando"
-                ,"Muritos", "Av siempre muerta", "0914141414", "amuritos@correo.com");
-
-
-        Factura factura = new Factura(1,"FAC-0003",new Date(),12.50,2.50,15.00,cliente);
-
+    public static void main(String[] args) {
+        Cliente Cliente = new Cliente("1726813684", 1, "Mateo", "Benitez", "AV. queti y sapo", "0997615005", "mateo78_ricardo@hotmail.com");
+        Factura factura = new Factura(1, "FAC-001", new Date(), 100.00, 12.00, 112.00, Cliente);
         System.out.println(factura.toString());
-
     }
 }

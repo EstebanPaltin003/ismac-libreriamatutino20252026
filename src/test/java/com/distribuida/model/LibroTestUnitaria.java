@@ -15,13 +15,17 @@ public class LibroTestUnitaria {
 
     @BeforeEach
     public void setup() {
-        Categoria = new Categoria(1);
-        Autor = new Autor(1, "Gabriel", "García", "Colombia",
-                "Direc", "0999999999", "correo@mail.com");
+        Categoria = new Categoria(1, "Drama", "Narrativa");
+        Autor = new Autor(1, "Melany", "Ayala", "Ecuador",
+                "Dir", "0999", "correo@mail.com");
 
         Libro = new Libro();
-        Libro.setIdLibro(10);
+        Libro.setIdLibro(10);//8
         Libro.setTitulo("Cien años de soledad");
+        Libro.setEditorial("Sudamericana");
+        Libro.setNumPaginas(500);
+        Libro.setIdioma("Español");
+        Libro.setFechaPublicacion(new Date());
         Libro.setPrecio(25);
         Libro.setCategoria(Categoria);
         Libro.setAutor(Autor);
@@ -32,6 +36,9 @@ public class LibroTestUnitaria {
         assertAll("Validar Constructor - libro",
                 () -> assertEquals(10, Libro.getIdLibro()),
                 () -> assertEquals("Cien años de soledad", Libro.getTitulo()),
+                () -> assertEquals("Sudamericana", Libro.getEditorial()),
+                () -> assertEquals(500, Libro.getNumPaginas()),
+                () -> assertEquals("Español", Libro.getIdioma()),
                 () -> assertEquals(25, Libro.getPrecio())
         );
     }
@@ -41,8 +48,8 @@ public class LibroTestUnitaria {
         assertAll("Validar inyección - libro",
                 () -> assertNotNull(Libro.getCategoria()),
                 () -> assertNotNull(Libro.getAutor()),
-                () -> assertEquals("Ficción", Libro.getCategoria().getCategoria()),
-                () -> assertEquals("Gabriel", Libro.getAutor().getNombre())
+                () -> assertEquals("Drama", Libro.getCategoria().getCategoria()),
+                () -> assertEquals("Melany", Libro.getAutor().getNombre())
         );
     }
 

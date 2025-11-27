@@ -6,9 +6,10 @@ public class ClientePrincipal {
 
     public static void main(String[] args){
 
-        Cliente cliente = new Cliente(1,"1752775237", "Armando"
-                ,"Muritos", "Av siempre muerta", "0914141414", "amuritos@correo.com");
+        Cliente cliente = new Cliente("1726813684", 1, "Mateo", "Benitez", "AV. queti y sapo", "0997615005", "mateo78_ricardo@hotmail.com");
 
         System.out.println(cliente.toString());
+
     }
+
 }

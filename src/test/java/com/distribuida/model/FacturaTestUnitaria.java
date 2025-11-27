@@ -10,111 +10,99 @@ import static org.junit.jupiter.api.Assertions.*;
 public class FacturaTestUnitaria {
 
     private Factura factura;
-    private Cliente cliente;
-
+    private Cliente Cliente;
+    //8
     @BeforeEach
     public void setup(){
-        cliente = new Cliente(1
-                ,"1752775237"
-                ,"Armando"
-                ,"Muritos"
-                ,"Av siempre muerta"
-                ,"0915263524"
-                ,"amuritos@correo.com");
+
+
+        Cliente = new Cliente("171960400"
+                , 1
+                , "Matias"
+                , "Noguera"
+                , "Av. queti y sapo"
+                , "0968339777"
+                , "matino@hotmail.com");
+
 
         factura = new Factura();
 
         factura.setIdFactura(1);
-        factura.setNumFactura("FAC-0001");
+        factura.setNumFactura("FAC-001");
         factura.setFecha(new Date());
         factura.setTotalNeto(100.00);
         factura.setIva(15.00);
         factura.setTotal(115.00);
-         //inyeccion de dependencias
-        factura.setCliente(cliente);
+        //Inyeccion
+        factura.setCliente(Cliente);
     }
 
     @Test
     public void testFacturaConstructor(){
-        assertAll("Valdiar datos del constructor - Factura",
+        assertAll("Valida datos de Constructor - factura",
                 () -> assertEquals(1,factura.getIdFactura()),
-                () -> assertEquals("FAC-0001", factura.getNumFactura()),
-                // () -> aseertEquals(new Date(), factura.getFecha()),
+                () -> assertEquals("FAC-001", factura.getNumFactura()),
                 () -> assertEquals(100.00, factura.getTotalNeto()),
                 () -> assertEquals(15.00, factura.getIva()),
                 () -> assertEquals(115.00, factura.getTotal())
-
-                );
+        );
     }
 
-
-
     @Test
-    public void testFacturaSetters(){
-        cliente = new Cliente(2, "1103314710", "Armando2", "Murallas", "Direccion2", "0914253625", "amurallas@correo.com");
+    public void TestFacturaSetters(){
+        Cliente = new Cliente("1726813685",2,"Matias2","Noguera2","Direccion2","0968339777","mateino@hotmail.com2");
         factura = new Factura();
 
         factura.setIdFactura(2);
-        factura.setNumFactura("FAC-0002");
+        factura.setNumFactura("FAC-002");
         factura.setFecha(new Date());
         factura.setTotalNeto(200.00);
         factura.setIva(30.00);
         factura.setTotal(230.00);
-            //test en inyeccion de dependencias
-        factura.setCliente(cliente);
+        //Test en inyeccion
+        factura.setCliente(Cliente);
 
-        assertAll("Validar metodos setter - Factura",
+        assertAll("Validar metodos setters - Factura",
                 () -> assertEquals(2, factura.getIdFactura()),
-                () -> assertEquals("FAC-0002", factura.getNumFactura()),
-                //() -> assertEquals(new Date(), factura.getFecha()),
+                () -> assertEquals("FAC-002", factura.getNumFactura()),
                 () -> assertEquals(200.00, factura.getTotalNeto()),
                 () -> assertEquals(30.00, factura.getIva()),
                 () -> assertEquals(230.00, factura.getTotal()),
-                () -> assertEquals("1103314710", factura.getCliente().getCedula())
-                );
-
+                () -> assertEquals("1726813685", factura.getCliente().getCedula())
+        );
     }
 
     @Test
     public void testFacturaToString(){
         String str = factura.toString();
 
-        assertAll("Validar datos de toSting - Factura",
+        assertAll("Validar datos de toString",
                 () -> assertTrue(str.contains("1")),
-                () -> assertTrue(str.contains("FAC-0001")),
+                () -> assertTrue(str.contains("FAC-001")),
                 () -> assertTrue(str.contains("100.0")),
                 () -> assertTrue(str.contains("15.0")),
                 () -> assertTrue(str.contains("115.0")),
-                () -> assertTrue(str.contains("Armando"))
+                () -> assertTrue(str.contains("Matias"))
         );
-
     }
 
-
     @Test
-    public void testFacturaInyeccion(){
+    public void testFacturaInyector(){
 
         assertAll("Validar metodo inyector",
                 () -> assertNotNull(factura.getCliente()),
-                () -> assertEquals("Muritos", factura.getCliente().getApellido())
+                () -> assertEquals("Noguera", factura.getCliente().getApellido())
         );
-
     }
-
 
     @Test
     public void testFacturaValoresNegativos(){
 
         factura.setTotal(-100.00);
-        assertAll("Validar datos negativos - Factura",
+        assertAll("Validar datos Negativos - Factura",
                 () -> assertEquals(-100.00, factura.getTotal())
-            );
-            // validar que se evite valores negativos.
-//dawdaw
+        );
+        // validar que se evite valores negativos
     }
 
-
-//asdwad   fdsfdsgfdsgfdsgdf
-
-    // otra prueba
 }
