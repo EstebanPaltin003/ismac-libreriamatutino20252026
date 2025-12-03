@@ -1,7 +1,7 @@
 package com.distribuida.dao;
 
-import com.distribuida.model.Factura;
 import com.distribuida.model.Cliente;
+import com.distribuida.model.Factura;
 import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,12 +14,16 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 @Transactional
 @Rollback(value = false)
-public class FacturaTestIntegracion {
+public class FacturaRepositoryTestIntegracion {
 
     @Autowired
     private FacturaDAO facturaDAO;
@@ -107,8 +111,4 @@ public class FacturaTestIntegracion {
 }
 
 
-
-
-
-
-//uwu
+//comentarios para que no me roben
