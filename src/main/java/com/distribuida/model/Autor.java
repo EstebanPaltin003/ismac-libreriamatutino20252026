@@ -1,51 +1,22 @@
 package com.distribuida.model;
 
-import jakarta.persistence.*;
-import java.util.List;
-
-@Entity
-@Table(name = "autor")
 public class Autor {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_autor")
+    // ATRIBUTOS
     private int idAutor;
-
-    @Column(name = "nombre")
     private String nombre;
+    private String nacionalidad;
 
-    @Column(name = "apellido")
-    private String apellido;
+    // CONSTRUCTORES
+    public Autor() { }
 
-    @Column(name = "pais")
-    private String pais;
-
-    @Column(name = "direccion")
-    private String direccion;
-
-    @Column(name = "telefono")
-    private String telefono;
-
-    @Column(name = "correo")
-    private String correo;
-
-    // Relación OneToMany con Libro
-    @OneToMany(mappedBy = "autor", cascade = CascadeType.ALL)
-    private List<Libro> libros;
-
-    public Autor() {}
-
-    public Autor(int idAutor, String nombre, String apellido, String pais, String direccion, String telefono, String correo) {
+    public Autor(int idAutor, String nombre, String nacionalidad) {
         this.idAutor = idAutor;
         this.nombre = nombre;
-        this.apellido = apellido;
-        this.pais = pais;
-        this.direccion = direccion;
-        this.telefono = telefono;
-        this.correo = correo;
+        this.nacionalidad = nacionalidad;
     }
 
+    // GETTERS Y SETTERS
     public int getIdAutor() {
         return idAutor;
     }
@@ -62,52 +33,12 @@ public class Autor {
         this.nombre = nombre;
     }
 
-    public String getApellido() {
-        return apellido;
+    public String getNacionalidad() {
+        return nacionalidad;
     }
 
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
-    }
-
-    public String getPais() {
-        return pais;
-    }
-
-    public void setPais(String pais) {
-        this.pais = pais;
-    }
-
-    public String getDireccion() {
-        return direccion;
-    }
-
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
-    }
-
-    public String getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
-    }
-
-    public String getCorreo() {
-        return correo;
-    }
-
-    public void setCorreo(String correo) {
-        this.correo = correo;
-    }
-
-    public List<Libro> getLibros() {
-        return libros;
-    }
-
-    public void setLibros(List<Libro> libros) {
-        this.libros = libros;
+    public void setNacionalidad(String nacionalidad) {
+        this.nacionalidad = nacionalidad;
     }
 
     @Override
@@ -115,12 +46,7 @@ public class Autor {
         return "Autor{" +
                 "idAutor=" + idAutor +
                 ", nombre='" + nombre + '\'' +
-                ", apellido='" + apellido + '\'' +
-                ", pais='" + pais + '\'' +
-                ", direccion='" + direccion + '\'' +
-                ", telefono='" + telefono + '\'' +
-                ", correo='" + correo + '\'' +
+                ", nacionalidad='" + nacionalidad + '\'' +
                 '}';
     }
-
 }
